@@ -13,12 +13,10 @@ import CourseCard from "@/components/course-card";
 import { useCourses } from "@/hooks/use-course";
 
 export default function EducationCenter() {
-  const { courses, loading, error } = useCourses();
+  const { courses } = useCourses();
 
   const handleCourseClick = (course) => {
-    // Handle course click - could navigate to course detail page
     console.log("Course clicked:", course.slug);
-    // In a real app, you might use router.push(`/courses/${course.slug}`)
   };
   return (
     <>
@@ -153,6 +151,24 @@ export default function EducationCenter() {
           </div>
         </div>
       </div>
+
+      <section className="pb-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Materi Pembelajaran
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {courses.map((course) => (
+              <CourseCard
+                key={course.id}
+                course={course}
+                onCourseClick={handleCourseClick}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </>
