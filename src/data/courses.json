@@ -1,0 +1,94 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "type": "Artikel",
+      "duration": "10 menit",
+      "title": "Cara Memulai UMKM di Era Digital",
+      "description": "Panduan lengkap untuk memulai usaha kecil dan menengah di era digital dengan strategi yang tepat.",
+      "image": "/placeholder.svg?height=200&width=300&text=UMKM+Digital",
+      "buttonText": "Baca Artikel",
+      "slug": "cara-memulai-umkm-digital"
+    },
+    {
+      "id": 2,
+      "type": "Video",
+      "duration": "25 menit",
+      "title": "Strategi Pemasaran Produk UMKM Melalui Media Sosial",
+      "description": "Pelajari cara memasarkan produk UMKM Anda melalui berbagai platform media sosial secara efektif.",
+      "image": "/placeholder.svg?height=200&width=300&text=Social+Media+Marketing",
+      "buttonText": "Tonton Video",
+      "slug": "strategi-pemasaran-media-sosial"
+    },
+    {
+      "id": 3,
+      "type": "Artikel",
+      "duration": "15 menit",
+      "title": "Manajemen Keuangan untuk UMKM Pemula",
+      "description": "Panduan dasar mengelola keuangan untuk pelaku UMKM yang baru memulai usaha mereka.",
+      "image": "/placeholder.svg?height=200&width=300&text=Financial+Management",
+      "buttonText": "Baca Artikel",
+      "slug": "manajemen-keuangan-umkm"
+    },
+    {
+      "id": 4,
+      "type": "Video",
+      "duration": "30 menit",
+      "title": "Teknik Fotografi Produk untuk Toko Online",
+      "description": "Pelajari cara mengambil foto produk yang menarik untuk meningkatkan penjualan online Anda.",
+      "image": "/placeholder.svg?height=200&width=300&text=Product+Photography",
+      "buttonText": "Tonton Video",
+      "slug": "teknik-fotografi-produk"
+    },
+    {
+      "id": 5,
+      "type": "Artikel",
+      "duration": "12 menit",
+      "title": "Cara Mendapatkan Modal Usaha untuk UMKM",
+      "description": "Berbagai pilihan pendanaan dan cara mengakses modal usaha untuk mengembangkan bisnis UMKM.",
+      "image": "/placeholder.svg?height=200&width=300&text=Business+Funding",
+      "buttonText": "Baca Artikel",
+      "slug": "cara-mendapatkan-modal-usaha"
+    },
+    {
+      "id": 6,
+      "type": "Video",
+      "duration": "20 menit",
+      "title": "Pengemasan Produk yang Menarik dan Ekonomis",
+      "description": "Panduan lengkap membuat kemasan produk yang menarik namun tetap ekonomis untuk UMKM.",
+      "image": "/placeholder.svg?height=200&width=300&text=Product+Packaging",
+      "buttonText": "Tonton Video",
+      "slug": "pengemasan-produk-menarik"
+    },
+    {
+      "id": 7,
+      "type": "Artikel",
+      "duration": "18 menit",
+      "title": "Ekspor Produk UMKM: Panduan untuk Pemula",
+      "description": "Langkah-langkah memulai ekspor produk UMKM ke pasar internasional dengan strategi yang tepat.",
+      "image": "/placeholder.svg?height=200&width=300&text=Export+Business",
+      "buttonText": "Baca Artikel",
+      "slug": "ekspor-produk-umkm"
+    },
+    {
+      "id": 8,
+      "type": "Video",
+      "duration": "45 menit",
+      "title": "Membuat Website Bisnis dengan Budget Minimal",
+      "description": "Tutorial lengkap dan lengkah membuat website profesional untuk UMKM tanpa biaya besar.",
+      "image": "/placeholder.svg?height=200&width=300&text=Website+Development",
+      "buttonText": "Tonton Video",
+      "slug": "membuat-website-bisnis"
+    },
+    {
+      "id": 9,
+      "type": "Artikel",
+      "duration": "14 menit",
+      "title": "Strategi Penetapan Harga Produk UMKM",
+      "description": "Panduan menentukan harga produk yang kompetitif namun tetap menguntungkan untuk bisnis UMKM.",
+      "image": "/placeholder.svg?height=200&width=300&text=Pricing+Strategy",
+      "buttonText": "Baca Artikel",
+      "slug": "strategi-penetapan-harga"
+    }
+  ]
+}
