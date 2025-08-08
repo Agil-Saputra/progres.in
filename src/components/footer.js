@@ -54,7 +54,7 @@ export default function Footer() {
                 Website Maker
               </Link>
               <Link href="#" className="block text-blue-100 hover:text-white transition-colors">
-                Education Center
+                Pusat Edukasi
               </Link>
             </div>
           </div>
@@ -73,7 +73,7 @@ export default function Footer() {
                 Kisah Sukses
               </Link>
               <Link href="#" className="block text-blue-100 hover:text-white transition-colors">
-                Education Center
+                Pusat Edukasi
               </Link>
             </div>
           </div>

@@ -44,7 +44,7 @@ const navigationItems = [
     href: "/publish",
   },
   {
-    title: "Education Center",
+    title: "Pusat Edukasi",
     icon: BookOpen,
     href: "/education-center",
   },
@@ -55,8 +55,22 @@ const navigationItems = [
   },
 ];
 
+// Function to get page title based on pathname
+const getPageTitle = (pathname) => {
+  const pageMap = {
+    '/dashboard': 'Dashboard',
+    '/create-website': 'Buat Website',
+    '/edit-website': 'Buat Website',
+    '/publish': 'Publikasi & Link Website',
+    '/education-center': 'Pusat Edukasi',
+    '/profile': 'Profile'
+  };
+  return pageMap[pathname] || 'Dashboard';
+};
+
 export function DashboardSidebar({ children }) {
   const pathname = usePathname();
+  const pageTitle = getPageTitle(pathname);
 
   return (
     <SidebarProvider>
@@ -125,15 +139,12 @@ export function DashboardSidebar({ children }) {
       </Sidebar>
 
       <SidebarInset className="flex-1">
+        {/* Page Header */}
+        <div className="bg-white border-b border-gray-200 px-6 py-4">
+          <h1 className="text-2xl font-bold text-gray-900">{pageTitle}</h1>
+        </div>
+        
         {children}
-
-        {/* Floating chat button */}
-        <Button
-          size="icon"
-          className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-700 shadow-lg"
-        >
-          <MessageCircle className="w-5 h-5" />
-        </Button>
       </SidebarInset>
     </SidebarProvider>
   );

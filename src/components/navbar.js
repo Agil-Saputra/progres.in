@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import logo from "../assets/logo.svg";
-import Button from "./button";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   return (
@@ -22,38 +22,47 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div className="hidden md:flex items-center space-x-8">
           <Link 
-            href="#" 
+            href="/" 
             className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
           >
             Beranda
           </Link>
           <Link 
-            href="#" 
+            href="#testimonial" 
             className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
           >
             Testimonial
           </Link>
           <Link 
-            href="#" 
+            href="#success-stories" 
             className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
           >
             Kisah Sukses
           </Link>
           <Link 
-            href="#" 
+            href="/education-center" 
             className="text-gray-700 hover:text-gray-900 font-medium transition-colors"
           >
-            Education Center
+            Pusat Edukasi
           </Link>
         </div>
 
-        {/* Login Button */}
-        <div className="flex items-center">
-          <Button 
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition-colors"
-          >
-            Masuk
-          </Button>
+        {/* Auth Buttons */}
+        <div className="flex items-center space-x-3">
+          <Link href="/login">
+            <Button 
+              className="bg-transparent hover:bg-gray-100 text-gray-700 hover:text-gray-900 px-4 py-2 rounded-full font-medium transition-colors border border-gray-300"
+            >
+              Masuk
+            </Button>
+          </Link>
+          <Link href="/register">
+            <Button 
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition-colors"
+            >
+              Daftar
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button (hidden in this design but good practice) */}

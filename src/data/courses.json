@@ -6,9 +6,12 @@
       "duration": "10 menit",
       "title": "Cara Memulai UMKM di Era Digital",
       "description": "Panduan lengkap untuk memulai usaha kecil dan menengah di era digital dengan strategi yang tepat.",
-      "image": "/placeholder.svg?height=200&width=300&text=UMKM+Digital",
+      "image": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWFya2V0aW5nfGVufDB8fDB8fHww",
       "buttonText": "Baca Artikel",
-      "slug": "cara-memulai-umkm-digital"
+      "slug": "cara-memulai-umkm-digital",
+      "category": "Digital",
+      "content": "Di era digital saat ini, memulai UMKM memerlukan pemahaman mendalam tentang teknologi dan pemasaran online. Artikel ini akan membahas langkah-langkah praktis untuk memulai bisnis UMKM yang sukses di era digital...",
+      "fullContent": "Panduan lengkap ini akan membantu Anda memahami setiap aspek penting dalam memulai UMKM di era digital, mulai dari riset pasar hingga strategi pemasaran online yang efektif."
     },
     {
       "id": 2,
@@ -16,9 +19,13 @@
       "duration": "25 menit",
       "title": "Strategi Pemasaran Produk UMKM Melalui Media Sosial",
       "description": "Pelajari cara memasarkan produk UMKM Anda melalui berbagai platform media sosial secara efektif.",
-      "image": "/placeholder.svg?height=200&width=300&text=Social+Media+Marketing",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFya2V0aW5nfGVufDB8fDB8fHww",
       "buttonText": "Tonton Video",
-      "slug": "strategi-pemasaran-media-sosial"
+      "slug": "strategi-pemasaran-media-sosial",
+      "category": "Pemasaran",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "content": "Video tutorial komprehensif tentang strategi pemasaran melalui media sosial untuk UMKM...",
+      "fullContent": "Dalam video ini, Anda akan mempelajari teknik-teknik pemasaran media sosial yang terbukti efektif untuk meningkatkan visibilitas dan penjualan produk UMKM Anda."
     },
     {
       "id": 3,
@@ -26,9 +33,12 @@
       "duration": "15 menit",
       "title": "Manajemen Keuangan untuk UMKM Pemula",
       "description": "Panduan dasar mengelola keuangan untuk pelaku UMKM yang baru memulai usaha mereka.",
-      "image": "/placeholder.svg?height=200&width=300&text=Financial+Management",
+      "image": "https://images.unsplash.com/photo-1556740749-887f6717d7e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       "buttonText": "Baca Artikel",
-      "slug": "manajemen-keuangan-umkm"
+      "slug": "manajemen-keuangan-umkm",
+      "category": "Keuangan",
+      "content": "Manajemen keuangan yang baik adalah kunci sukses dalam menjalankan UMKM. Artikel ini membahas prinsip-prinsip dasar pengelolaan keuangan...",
+      "fullContent": "Pelajari cara membuat laporan keuangan sederhana, mengelola arus kas, dan membuat anggaran yang realistis untuk bisnis UMKM Anda."
     },
     {
       "id": 4,
@@ -36,9 +46,13 @@
       "duration": "30 menit",
       "title": "Teknik Fotografi Produk untuk Toko Online",
       "description": "Pelajari cara mengambil foto produk yang menarik untuk meningkatkan penjualan online Anda.",
-      "image": "/placeholder.svg?height=200&width=300&text=Product+Photography",
+      "image": "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       "buttonText": "Tonton Video",
-      "slug": "teknik-fotografi-produk"
+      "slug": "teknik-fotografi-produk",
+      "category": "Digital",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "content": "Tutorial praktis fotografi produk untuk e-commerce dengan peralatan minimal...",
+      "fullContent": "Video ini mengajarkan teknik fotografi produk profesional menggunakan peralatan sederhana yang tersedia di rumah untuk menghasilkan foto berkualitas tinggi."
     },
     {
       "id": 5,
@@ -46,9 +60,12 @@
       "duration": "12 menit",
       "title": "Cara Mendapatkan Modal Usaha untuk UMKM",
       "description": "Berbagai pilihan pendanaan dan cara mengakses modal usaha untuk mengembangkan bisnis UMKM.",
-      "image": "/placeholder.svg?height=200&width=300&text=Business+Funding",
+      "image": "https://images.unsplash.com/photo-1527788263495-3518a5c1c42d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzaW5lc3MlMjBsb2Fuc3xlbnwwfHwwfHx8MA%3D%3D",
       "buttonText": "Baca Artikel",
-      "slug": "cara-mendapatkan-modal-usaha"
+      "slug": "cara-mendapatkan-modal-usaha",
+      "category": "Keuangan",
+      "content": "Modal usaha adalah salah satu faktor kunci dalam mengembangkan UMKM. Artikel ini membahas berbagai sumber pendanaan...",
+      "fullContent": "Pelajari berbagai opsi pendanaan yang tersedia untuk UMKM, mulai dari bank konvensional hingga platform crowdfunding dan investor angel."
     },
     {
       "id": 6,
@@ -56,9 +73,13 @@
       "duration": "20 menit",
       "title": "Pengemasan Produk yang Menarik dan Ekonomis",
       "description": "Panduan lengkap membuat kemasan produk yang menarik namun tetap ekonomis untuk UMKM.",
-      "image": "/placeholder.svg?height=200&width=300&text=Product+Packaging",
+      "image": "https://images.unsplash.com/photo-1622467827417-bbe2237067a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Zm9vZCUyMHBhY2thZ2luZ3xlbnwwfHwwfHx8MA%3D%3D",
       "buttonText": "Tonton Video",
-      "slug": "pengemasan-produk-menarik"
+      "slug": "pengemasan-produk-menarik",
+      "category": "Produksi",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "content": "Tutorial membuat kemasan produk yang menarik dengan budget terbatas...",
+      "fullContent": "Video ini mengajarkan cara mendesain dan membuat kemasan produk yang eye-catching namun tetap cost-effective untuk UMKM."
     },
     {
       "id": 7,
@@ -66,9 +87,12 @@
       "duration": "18 menit",
       "title": "Ekspor Produk UMKM: Panduan untuk Pemula",
       "description": "Langkah-langkah memulai ekspor produk UMKM ke pasar internasional dengan strategi yang tepat.",
-      "image": "/placeholder.svg?height=200&width=300&text=Export+Business",
+      "image": "https://images.unsplash.com/photo-1617952739760-1dcae19a1d93?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGV4cG9ydHxlbnwwfHwwfHx8MA%3D%3D",
       "buttonText": "Baca Artikel",
-      "slug": "ekspor-produk-umkm"
+      "slug": "ekspor-produk-umkm",
+      "category": "Ekspor",
+      "content": "Ekspor produk UMKM ke pasar internasional membutuhkan persiapan yang matang...",
+      "fullContent": "Panduan komprehensif untuk memulai ekspor produk UMKM, termasuk prosedur perizinan, standar kualitas, dan strategi penetrasi pasar."
     },
     {
       "id": 8,
@@ -76,9 +100,13 @@
       "duration": "45 menit",
       "title": "Membuat Website Bisnis dengan Budget Minimal",
       "description": "Tutorial lengkap dan lengkah membuat website profesional untuk UMKM tanpa biaya besar.",
-      "image": "/placeholder.svg?height=200&width=300&text=Website+Development",
+      "image": "https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2ViJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDA%3D",
       "buttonText": "Tonton Video",
-      "slug": "membuat-website-bisnis"
+      "slug": "membuat-website-bisnis",
+      "category": "Digital",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "content": "Tutorial step-by-step membuat website profesional dengan budget minimal...",
+      "fullContent": "Pelajari cara membuat website bisnis yang profesional menggunakan platform gratis dan tools yang tersedia online."
     },
     {
       "id": 9,
@@ -86,9 +114,215 @@
       "duration": "14 menit",
       "title": "Strategi Penetapan Harga Produk UMKM",
       "description": "Panduan menentukan harga produk yang kompetitif namun tetap menguntungkan untuk bisnis UMKM.",
-      "image": "/placeholder.svg?height=200&width=300&text=Pricing+Strategy",
+      "image": "https://images.unsplash.com/photo-1496317556649-f930d733eea2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       "buttonText": "Baca Artikel",
-      "slug": "strategi-penetapan-harga"
+      "slug": "strategi-penetapan-harga",
+      "category": "Pemasaran",
+      "content": "Penetapan harga yang tepat sangat penting untuk kesuksesan UMKM...",
+      "fullContent": "Artikel ini membahas berbagai metode penetapan harga, analisis kompetitor, dan strategi pricing yang efektif untuk UMKM."
+    },
+    {
+      "id": 10,
+      "type": "Video",
+      "duration": "35 menit",
+      "title": "Membangun Brand Identity untuk UMKM",
+      "description": "Pelajari cara membangun identitas brand yang kuat untuk membedakan UMKM Anda dari kompetitor.",
+      "image": "https://images.unsplash.com/photo-1496317556649-f930d733eea2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Tonton Video",
+      "slug": "membangun-brand-identity",
+      "category": "Pemasaran",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "content": "Brand identity yang kuat dapat membantu UMKM meningkatkan recognition dan customer loyalty...",
+      "fullContent": "Video ini menjelaskan langkah-langkah praktis untuk membangun brand identity yang konsisten dan memorable untuk bisnis UMKM."
+    },
+    {
+      "id": 11,
+      "type": "Artikel",
+      "duration": "16 menit",
+      "title": "Analisis Kompetitor untuk UMKM",
+      "description": "Panduan lengkap menganalisis kompetitor untuk mengembangkan strategi bisnis yang lebih efektif.",
+      "image": "https://images.unsplash.com/photo-1556740749-887f6717d7e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Baca Artikel",
+      "slug": "analisis-kompetitor-umkm",
+      "category": "Pemasaran",
+      "content": "Memahami kompetitor adalah kunci untuk mengembangkan strategi bisnis yang tepat...",
+      "fullContent": "Artikel ini membahas metode analisis kompetitor, tools yang bisa digunakan, dan cara mengimplementasikan insights untuk keunggulan kompetitif."
+    },
+    {
+      "id": 12,
+      "type": "Video",
+      "duration": "28 menit",
+      "title": "Optimasi SEO untuk Website UMKM",
+      "description": "Tutorial praktis mengoptimalkan website UMKM agar mudah ditemukan di mesin pencari.",
+      "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Tonton Video",
+      "slug": "optimasi-seo-website",
+      "category": "Digital",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "content": "SEO yang baik dapat meningkatkan visibilitas online dan mendatangkan lebih banyak pelanggan...",
+      "fullContent": "Video ini mengajarkan teknik SEO on-page dan off-page yang mudah diterapkan untuk website UMKM tanpa budget besar."
+    },
+    {
+      "id": 13,
+      "type": "Artikel",
+      "duration": "13 menit",
+      "title": "Mengelola Inventory dan Stok Barang",
+      "description": "Sistem manajemen inventory yang efisien untuk mengoptimalkan operasional UMKM.",
+      "image": "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Baca Artikel",
+      "slug": "mengelola-inventory-stok",
+      "category": "Produksi",
+      "content": "Manajemen inventory yang baik dapat mengurangi biaya operasional dan meningkatkan efisiensi...",
+      "fullContent": "Pelajari cara membuat sistem inventory sederhana, menentukan safety stock, dan menggunakan tools digital untuk tracking stok."
+    },
+    {
+      "id": 14,
+      "type": "Video",
+      "duration": "40 menit",
+      "title": "Digital Marketing untuk UMKM Pemula",
+      "description": "Panduan lengkap digital marketing dari dasar hingga strategi advanced untuk UMKM.",
+      "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Tonton Video",
+      "slug": "digital-marketing-pemula",
+      "category": "Digital",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "content": "Digital marketing adalah kunci sukses bisnis di era modern...",
+      "fullContent": "Video komprehensif ini membahas semua aspek digital marketing mulai dari content marketing, social media marketing, hingga email marketing."
+    },
+    {
+      "id": 15,
+      "type": "Artikel",
+      "duration": "11 menit",
+      "title": "Pajak dan Legalitas UMKM",
+      "description": "Panduan memahami kewajiban pajak dan aspek legal yang harus diketahui pelaku UMKM.",
+      "image": "https://images.unsplash.com/photo-1556740749-887f6717d7e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Baca Artikel",
+      "slug": "pajak-legalitas-umkm",
+      "category": "Keuangan",
+      "content": "Memahami aspek pajak dan legal sangat penting untuk menjalankan bisnis yang compliant...",
+      "fullContent": "Artikel ini menjelaskan berbagai jenis pajak yang harus dibayar UMKM, cara perhitungannya, dan proses legalisasi bisnis."
+    },
+    {
+      "id": 16,
+      "type": "Video",
+      "duration": "32 menit",
+      "title": "Customer Service Excellence untuk UMKM",
+      "description": "Strategi memberikan pelayanan pelanggan terbaik untuk meningkatkan loyalitas dan repeat purchase.",
+      "image": "https://images.unsplash.com/photo-1496317556649-f930d733eea2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Tonton Video",
+      "slug": "customer-service-excellence",
+      "category": "Pemasaran",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "content": "Customer service yang excellent dapat menjadi competitive advantage untuk UMKM...",
+      "fullContent": "Video ini mengajarkan teknik komunikasi efektif, handling complaint, dan membangun relationship jangka panjang dengan pelanggan."
+    },
+    {
+      "id": 17,
+      "type": "Artikel",
+      "duration": "19 menit",
+      "title": "Strategi Supply Chain Management UMKM",
+      "description": "Optimasi rantai pasok untuk efisiensi operasional dan pengurangan biaya produksi.",
+      "image": "https://images.unsplash.com/photo-1542831371-d531d36971e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Baca Artikel",
+      "slug": "supply-chain-management",
+      "category": "Produksi",
+      "content": "Supply chain yang efisien dapat mengurangi biaya dan meningkatkan kualitas produk...",
+      "fullContent": "Artikel ini membahas cara memilih supplier yang tepat, negosiasi kontrak, dan membangun hubungan jangka panjang dengan vendor."
+    },
+    {
+      "id": 18,
+      "type": "Video",
+      "duration": "26 menit",
+      "title": "E-commerce dan Marketplace untuk UMKM",
+      "description": "Tutorial lengkap berjualan online di berbagai platform e-commerce dan marketplace.",
+      "image": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Tonton Video",
+      "slug": "ecommerce-marketplace-umkm",
+      "category": "Digital",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "content": "Menjual online di marketplace dapat memperluas jangkauan pasar UMKM...",
+      "fullContent": "Video ini menjelaskan cara setup toko online, optimasi listing produk, dan strategi marketing di berbagai platform e-commerce."
+    },
+    {
+      "id": 19,
+      "type": "Artikel",
+      "duration": "15 menit",
+      "title": "Standar Kualitas Produk untuk Ekspor",
+      "description": "Panduan memenuhi standar kualitas internasional untuk produk ekspor UMKM.",
+      "image": "https://images.unsplash.com/photo-1494526585095-c41746248156?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Baca Artikel",
+      "slug": "standar-kualitas-ekspor",
+      "category": "Ekspor",
+      "content": "Memenuhi standar kualitas internasional adalah syarat wajib untuk ekspor...",
+      "fullContent": "Artikel ini membahas berbagai sertifikasi yang diperlukan, proses quality control, dan cara mempertahankan konsistensi kualitas produk."
+    },
+    {
+      "id": 20,
+      "type": "Video",
+      "duration": "38 menit",
+      "title": "Cashflow Management untuk UMKM",
+      "description": "Strategi mengelola arus kas agar bisnis UMKM tetap sehat dan sustainable.",
+      "image": "https://images.unsplash.com/photo-1556740749-887f6717d7e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Tonton Video",
+      "slug": "cashflow-management-umkm",
+      "category": "Keuangan",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "content": "Cashflow yang sehat adalah nyawa bisnis UMKM...",
+      "fullContent": "Video ini mengajarkan cara membuat proyeksi cashflow, mengelola piutang dan hutang, serta strategi menghadapi masalah likuiditas."
+    },
+    {
+      "id": 21,
+      "type": "Artikel",
+      "duration": "17 menit",
+      "title": "Networking dan Partnership untuk UMKM",
+      "description": "Membangun jaringan bisnis dan kemitraan strategis untuk pertumbuhan UMKM.",
+      "image": "https://images.unsplash.com/photo-1496317556649-f930d733eea2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Baca Artikel",
+      "slug": "networking-partnership-umkm",
+      "category": "Pemasaran",
+      "content": "Networking yang baik dapat membuka peluang bisnis baru dan partnership strategis...",
+      "fullContent": "Artikel ini membahas cara membangun network, mencari partner yang tepat, dan menjaga hubungan bisnis jangka panjang."
+    },
+    {
+      "id": 22,
+      "type": "Video",
+      "duration": "33 menit",
+      "title": "Inovasi Produk dan Pengembangan R&D",
+      "description": "Strategi inovasi dan pengembangan produk untuk menjaga kompetitivitas UMKM.",
+      "image": "https://images.unsplash.com/photo-1542831371-d531d36971e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Tonton Video",
+      "slug": "inovasi-produk-rnd",
+      "category": "Produksi",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "content": "Inovasi berkelanjutan diperlukan untuk tetap kompetitif di pasar...",
+      "fullContent": "Video ini menjelaskan proses pengembangan produk baru, riset pasar, dan implementasi feedback pelanggan untuk improvement."
+    },
+    {
+      "id": 23,
+      "type": "Artikel",
+      "duration": "20 menit",
+      "title": "Dokumentasi Ekspor dan Prosedur Bea Cukai",
+      "description": "Panduan lengkap dokumentasi dan prosedur ekspor yang harus dipahami UMKM eksportir.",
+      "image": "https://images.unsplash.com/photo-1494526585095-c41746248156?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Baca Artikel",
+      "slug": "dokumentasi-ekspor-bea-cukai",
+      "category": "Ekspor",
+      "content": "Dokumentasi ekspor yang lengkap dan benar adalah kunci kelancaran proses ekspor...",
+      "fullContent": "Artikel ini menjelaskan berbagai dokumen ekspor, prosedur bea cukai, dan tips menghindari masalah dalam proses clearance."
+    },
+    {
+      "id": 24,
+      "type": "Video",
+      "duration": "29 menit",
+      "title": "Social Media Advertising untuk UMKM",
+      "description": "Tutorial praktis beriklan di media sosial dengan budget minimal untuk hasil maksimal.",
+      "image": "https://images.unsplash.com/photo-1496317556649-f930d733eea2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "buttonText": "Tonton Video",
+      "slug": "social-media-advertising",
+      "category": "Digital",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "content": "Social media advertising dapat memberikan ROI yang tinggi dengan budget yang relatif kecil...",
+      "fullContent": "Video ini mengajarkan cara membuat campaign yang efektif, targeting audience yang tepat, dan mengoptimalkan ad performance."
     }
   ]
 }
