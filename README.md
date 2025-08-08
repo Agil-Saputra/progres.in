@@ -17,10 +17,10 @@
 
 ## 📋 Daftar Isi
 
-- [📖 Tentang Proyek](#-tentang-proyek)
+- [📖 Tentang Project](#-tentang-proyek)
 - [✨ Fitur Utama](#-fitur-utama)
 - [🛠️ Teknologi yang Digunakan](#️-teknologi-yang-digunakan)
-- [📁 Struktur Proyek](#-struktur-proyek)
+- [📁 Struktur Project](#-struktur-proyek)
 - [🚀 Cara Menjalankan](#-cara-menjalankan)
 - [🧪 Testing](#-testing)
 - [📦 Build & Deploy](#-build--deploy)
@@ -34,6 +34,7 @@
 **Progres.in** adalah platform digital yang dirancang khusus untuk membantu Usaha Mikro, Kecil, dan Menengah (UMKM) di Indonesia dalam proses digitalisasi bisnis mereka. Platform ini memungkinkan pengguna untuk membuat website profesional dalam waktu 5 menit tanpa perlu coding.
 
 ### 🎯 Misi Kami
+
 Mengakselerasi pertumbuhan ekonomi yang adil dan berkelanjutan melalui digitalisasi UMKM Indonesia.
 
 ---
@@ -41,21 +42,25 @@ Mengakselerasi pertumbuhan ekonomi yang adil dan berkelanjutan melalui digitalis
 ## ✨ Fitur Utama
 
 ### 🌟 **Website Builder Super Cepat**
+
 - ⚡ **Website siap dalam 5 menit** - Template profesional siap pakai
 - 🎨 **Customization mudah** - Tanpa coding, tanpa ribet
 - 📱 **Responsive design** - Optimal di semua perangkat
 
 ### 🌍 **SEO & Marketing Tools**
+
 - 🔍 **SEO Optimization** - Website mudah ditemukan di Google
 - 📈 **Analytics dashboard** - Pantau performa website
 - 💬 **Social media integration** - Terhubung dengan semua platform
 
 ### 🛒 **E-Commerce Ready**
+
 - 🛍️ **Online store lengkap** - Sistem penjualan terintegrasi
 - 💳 **Payment gateway** - Terima pembayaran digital
 - 📊 **Inventory management** - Kelola stok dengan mudah
 
 ### 📚 **Education Center**
+
 - 🎥 **100+ Video tutorial** - Pelatihan digital marketing gratis
 - 📖 **Workshop online** - Belajar bersama expert
 - 🎓 **Sertifikasi** - Dapatkan sertifikat keahlian
@@ -65,23 +70,26 @@ Mengakselerasi pertumbuhan ekonomi yang adil dan berkelanjutan melalui digitalis
 ## 🛠️ Teknologi yang Digunakan
 
 ### **Frontend Framework**
+
 - **Next.js 15.4.1** - React framework dengan App Router
 - **React 19.1.0** - Library UI terdepan
 - **Tailwind CSS 4** - Utility-first CSS framework
 
 ### **Animation & UI**
+
 - **Framer Motion 12.23.12** - Animasi modern dan smooth
 - **Lucide React** - Icon library yang konsisten
 - **Radix UI** - Komponen UI primitif berkualitas tinggi
 
 ### **Additional Libraries**
+
 - **Swiper.js** - Carousel dan slider interaktif
 - **React Fast Marquee** - Animasi teks berjalan
 - **Class Variance Authority** - Utility untuk styling kondisional
 
 ---
 
-## 📁 Struktur Proyek
+## 📁 Struktur Folder
 
 ```
 progres.in/
@@ -131,17 +139,21 @@ progres.in/
 ## 🚀 Cara Menjalankan
 
 ### **Prerequisites**
+
 Pastikan Anda sudah menginstall:
+
 - 📦 **Node.js** (versi 18.0.0 atau lebih tinggi)
 - 📦 **npm**, **yarn**, **pnpm**, atau **bun**
 
 ### **1️⃣ Clone Repository**
+
 ```bash
 git clone https://github.com/Agil-Saputra/progres.in.git
 cd progres.in
 ```
 
 ### **2️⃣ Install Dependencies**
+
 ```bash
 # Menggunakan npm
 npm install
@@ -157,6 +169,7 @@ bun install
 ```
 
 ### **3️⃣ Jalankan Development Server**
+
 ```bash
 # Menggunakan npm
 npm run dev
@@ -172,6 +185,7 @@ bun dev
 ```
 
 ### **4️⃣ Buka Browser**
+
 Kunjungi [http://localhost:3000](http://localhost:3000) untuk melihat aplikasi berjalan.
 
 🎉 **Selamat!** Aplikasi sudah berjalan di local environment Anda.
@@ -181,16 +195,19 @@ Kunjungi [http://localhost:3000](http://localhost:3000) untuk melihat aplikasi b
 ## 🧪 Testing
 
 ### **Lint Check**
+
 ```bash
 npm run lint
 ```
 
 ### **Build Test**
+
 ```bash
 npm run build
 ```
 
 ### **Manual Testing Checklist**
+
 - ✅ **Responsive Design** - Test di berbagai ukuran layar
 - ✅ **Navigation** - Pastikan semua link berfungsi
 - ✅ **Animations** - Cek smoothness animasi Framer Motion
@@ -202,18 +219,22 @@ npm run build
 ## 📦 Build & Deploy
 
 ### **Production Build**
+
 ```bash
 npm run build
 npm start
 ```
 
 ### **Deploy ke Vercel** (Recommended)
+
 1. Push kode ke GitHub repository
 2. Connect repository di [Vercel Dashboard](https://vercel.com)
 3. Auto-deploy akan berjalan setiap push ke main branch
 
 ### **Environment Variables**
+
 Buat file `.env.local` untuk konfigurasi:
+
 ```env
 NEXT_PUBLIC_API_URL=your_api_url
 NEXT_PUBLIC_SITE_URL=your_site_url
@@ -224,7 +245,9 @@ NEXT_PUBLIC_SITE_URL=your_site_url
 ## 🎨 Komponen & Fungsi
 
 ### **🏠 Homepage (`src/app/page.js`)**
+
 Halaman utama yang menampilkan:
+
 - **Hero Section** - CTA utama dengan animasi Framer Motion
 - **Vertical Marquee** - Showcase website templates
 - **About Section** - Penjelasan tentang Progres.in
@@ -235,6 +258,7 @@ Halaman utama yang menampilkan:
 ### **🧩 Komponen Utama**
 
 #### **`components/navbar.js`**
+
 ```javascript
 // Navigation header dengan:
 - Logo branding
@@ -244,6 +268,7 @@ Halaman utama yang menampilkan:
 ```
 
 #### **`components/slider.js`**
+
 ```javascript
 // Swiper.js wrapper untuk:
 - Success stories carousel
@@ -253,6 +278,7 @@ Halaman utama yang menampilkan:
 ```
 
 #### **`components/success-story-card.js`**
+
 ```javascript
 // Card component untuk:
 - Story testimonials
@@ -262,7 +288,9 @@ Halaman utama yang menampilkan:
 ```
 
 #### **`components/ui/`**
+
 Koleksi UI primitif berbasis Radix UI:
+
 - **Button** - Styled button dengan variants
 - **Card** - Container dengan shadow
 - **Modal** - Dialog overlay
@@ -271,6 +299,7 @@ Koleksi UI primitif berbasis Radix UI:
 ### **📊 Data Management**
 
 #### **`data/testimonials.json`**
+
 ```json
 {
   "id": "unique_id",
@@ -283,6 +312,7 @@ Koleksi UI primitif berbasis Radix UI:
 ```
 
 #### **`data/success-stories.json`**
+
 ```json
 {
   "id": "story_id",
@@ -297,6 +327,7 @@ Koleksi UI primitif berbasis Radix UI:
 ### **🎭 Animasi & Interaksi**
 
 #### **Framer Motion Patterns**
+
 ```javascript
 // Scroll-triggered animations
 const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -314,12 +345,14 @@ whileTap={{ scale: 0.95 }}
 ### **🎨 Styling Strategy**
 
 #### **Tailwind CSS Utilities**
+
 - **Responsive Design** - `sm:`, `md:`, `lg:`, `xl:` breakpoints
 - **Color Palette** - Blue primary dengan gray accents
 - **Typography** - Geist font family optimization
 - **Animations** - Custom CSS animations dengan Tailwind
 
 #### **Design System**
+
 ```css
 /* Primary Colors */
 Blue-600: #2563eb (Primary brand)
@@ -333,21 +366,8 @@ Components: p-6 to p-8
 Elements: gap-4 to gap-8
 ```
 
----
-
-## 🤝 Kontribusi
-
-Kami menyambut kontribusi dari developer Indonesia! 🇮🇩
-
-### **Cara Berkontribusi**
-1. 🍴 **Fork** repository ini
-2. 🔄 **Clone** fork ke local machine
-3. 🌿 **Buat branch** untuk fitur baru (`git checkout -b feature/AmazingFeature`)
-4. ✍️ **Commit** perubahan (`git commit -m 'Add some AmazingFeature'`)
-5. 📤 **Push** ke branch (`git push origin feature/AmazingFeature`)
-6. 🔃 **Buat Pull Request**
-
 ### **Guidelines**
+
 - 📝 **Code Style** - Gunakan Prettier & ESLint
 - 🧪 **Testing** - Test fitur baru sebelum submit PR
 - 📚 **Documentation** - Update README jika diperlukan
@@ -357,10 +377,9 @@ Kami menyambut kontribusi dari developer Indonesia! 🇮🇩
 
 ## 📞 Dukungan & Komunitas
 
-- 🌐 **Website**: [progres.in](https://progres.in)
+- 🌐 **Website**: [progres.in](https://progres-in.vercel.app/)
 - 📧 **Email**: support@progres.in
-- 💬 **Discord**: [Join Community](https://discord.gg/progresin)
-- 🐦 **Twitter**: [@progresin_id](https://twitter.com/progresin_id)
+- 🐱 **Github**: [github](https://github.com/Agil-Saputra/progres.in)
 
 ---
 
