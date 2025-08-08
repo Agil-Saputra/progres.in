@@ -78,7 +78,7 @@ const SuccessStoryCard = ({ story }) => {
             transition={{ duration: 0.3 }}
           >
             <blockquote className="text-lg lg:text-xl text-gray-700 leading-relaxed italic font-medium">
-              "{story.quote}"
+              &ldquo;{story.quote}&rdquo;
             </blockquote>
           </motion.div>
         </motion.div>

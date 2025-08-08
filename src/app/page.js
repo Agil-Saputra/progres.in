@@ -695,7 +695,7 @@ export default function Home() {
                           index % 2 === 0 ? "text-white" : "text-gray-600"
                         }`}
                       >
-                        "{testimonial.testimonial}"
+                        &ldquo;{testimonial.testimonial}&rdquo;
                       </p>
                       {/* Star Rating */}
                       <div className="flex mt-3">
@@ -784,7 +784,7 @@ export default function Home() {
                           index % 2 === 1 ? "text-white" : "text-gray-600"
                         }`}
                       >
-                        "{testimonial.testimonial}"
+                        &ldquo;{testimonial.testimonial}&rdquo;
                       </p>
                       {/* Star Rating */}
                       <div className="flex mt-3">
