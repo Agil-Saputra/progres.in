@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Sari Wulandari",
+    "business": "Warung Sari Sedap",
+    "testimonial": "Sejak menggunakan website dari Progres.in, penjualan online saya meningkat 300%! Sebelumnya hanya mengandalkan WhatsApp, sekarang pelanggan bisa pesan langsung lewat website.",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face&auto=format",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "name": "Budi Santoso",
+    "business": "Bakso Pak Budi",
+    "testimonial": "Website dari Progres.in sangat membantu! Sekarang pelanggan bisa lihat menu lengkap dan pesan online. Omzet naik drastis dalam 2 bulan pertama.",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face&auto=format",
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "name": "Rina Kumala",
+    "business": "Toko Kue Rina",
+    "testimonial": "Awalnya saya ragu menggunakan website, tapi ternyata sangat mudah! Sekarang bisa upload foto kue terbaru dan pelanggan langsung tertarik untuk pesan.",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face&auto=format",
+    "rating": 5
+  },
+  {
+    "id": 4,
+    "name": "Ahmad Fauzi",
+    "business": "Bengkel Motor Fauzi",
+    "testimonial": "Dengan website dari Progres.in, pelanggan sekarang bisa booking service online. Lebih teratur dan professional. Terima kasih Progres.in!",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format",
+    "rating": 5
+  },
+  {
+    "id": 5,
+    "name": "Dewi Permatasari",
+    "business": "Salon Cantik Dewi",
+    "testimonial": "Website membuat bisnis salon saya terlihat lebih professional. Sekarang pelanggan bisa lihat layanan dan harga dengan jelas sebelum datang.",
+    "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face&auto=format",
+    "rating": 5
+  },
+  {
+    "id": 6,
+    "name": "Joko Widodo",
+    "business": "Laundry Express Joko",
+    "testimonial": "Progres.in benar-benar membantu! Pelanggan sekarang bisa cek status cucian online dan tidak perlu telepon terus-menerus. Sangat efisien!",
+    "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face&auto=format",
+    "rating": 5
+  },
+  {
+    "id": 7,
+    "name": "Maya Sari",
+    "business": "Fashion Boutique Maya",
+    "testimonial": "Website e-commerce dari Progres.in sangat mudah digunakan. Pelanggan bisa belanja online 24 jam dan pembayaran juga mudah. Penjualan meningkat pesat!",
+    "avatar": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face&auto=format",
+    "rating": 5
+  },
+  {
+    "id": 8,
+    "name": "Rudi Hartono",
+    "business": "Kedai Kopi Rudi",
+    "testimonial": "Setelah punya website, kedai kopi saya jadi lebih dikenal. Banyak pelanggan baru yang datang karena melihat website. Menu dan promo juga mudah diupdate.",
+    "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face&auto=format",
+    "rating": 5
+  },
+  {
+    "id": 9,
+    "name": "Siti Nurhaliza",
+    "business": "Catering Bu Siti",
+    "testimonial": "Website memudahkan pelanggan untuk melihat paket catering dan melakukan pemesanan. Tidak ada lagi kesalahan pesanan karena semua tercatat dengan rapi.",
+    "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face&auto=format",
+    "rating": 5
+  },
+  {
+    "id": 10,
+    "name": "Tony Wijaya",
+    "business": "Elektronik Tony",
+    "testimonial": "Dengan website dari Progres.in, toko elektronik saya bisa bersaing dengan toko online besar. Fitur katalog produk sangat membantu menampilkan barang dagangan.",
+    "avatar": "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=150&h=150&fit=crop&crop=face&auto=format",
+    "rating": 5
+  }
+]

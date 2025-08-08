@@ -13,9 +13,16 @@ export const MarqueeContent = ({
   loop = 0,
   autoFill = true,
   pauseOnHover = true,
+  direction = "left",
   ...props
 }) => (
-  <FastMarquee autoFill={autoFill} loop={loop} pauseOnHover={pauseOnHover} {...props} />
+  <FastMarquee 
+    autoFill={autoFill} 
+    loop={loop} 
+    pauseOnHover={pauseOnHover} 
+    direction={direction}
+    {...props} 
+  />
 );
 
 export const MarqueeFade = ({

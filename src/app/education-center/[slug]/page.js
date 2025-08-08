@@ -98,9 +98,9 @@ export default function CourseDetail() {
             Kembali
           </Button>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
             {/* Main Content */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 sticky top-24">
               <Card className="mb-6">
                 <CardContent className="p-6">
                   {/* Course Header */}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Kak Dika",
+    "business": "Mezzaluna Studio",
+    "location": "Yogyakarta, Indonesia",
+    "quote": "Semenjak ada website ini, Penjualan saya meningkat drastis. Customer dan distributor menjadi lebih mudah di jangkau.",
+    "salesIncrease": "200% Peningkatan Penjualan",
+    "exports": "Ekspor 3 Negara",
+    "avatar": "https://images.unsplash.com/photo-1583195764036-6dc248ac07d9?w=1000&h=1000&fit=crop&crop=face&auto=format"
+  },
+  {
+    "id": 2,
+    "name": "Pak Rahman",
+    "business": "Batik Nusantara",
+    "location": "Solo, Indonesia", 
+    "quote": "Website membantu kami menjangkau pasar internasional. Sekarang produk batik kami dipesan dari berbagai negara.",
+    "salesIncrease": "350% Peningkatan Penjualan",
+    "exports": "Ekspor 5 Negara",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1000&h=1000&fit=crop&crop=face&auto=format"
+  },
+  {
+    "id": 3,
+    "name": "Mas Budi",
+    "business": "Kopi Robusta Premium",
+    "location": "Lampung, Indonesia",
+    "quote": "Dengan website e-commerce yang professional, kopi premium kami berhasil menembus pasar nasional dan internasional.",
+    "salesIncrease": "250% Peningkatan Penjualan",
+    "exports": "Ekspor 4 Negara", 
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=1000&h=1000&fit=crop&crop=face&auto=format"
+  },
+  {
+    "id": 4,
+    "name": "Ibu Mega",
+    "business": "Produk Organik Sehat",
+    "location": "Bogor, Indonesia",
+    "quote": "Platform digital membantu mengedukasi konsumen tentang produk organik kami. Penjualan meningkat signifikan.",
+    "salesIncrease": "300% Peningkatan Penjualan",
+    "exports": "Ekspor 3 Negara",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1000&h=1000&fit=crop&crop=face&auto=format"
+  }
+]
