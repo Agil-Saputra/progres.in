@@ -9,6 +9,49 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { ArrowLeft, Globe, Palette, Type, Image as ImageIcon, Sparkles, Send, X, MessageCircle, Monitor, Tablet, Smartphone } from 'lucide-react'
 
 export default function MakeWebsite() {
+  // WhatsApp Button Component (already moved above)
+
+  // EditableText Component
+  const EditableText = ({ field, className, style, placeholder }) => (
+    <div className="group relative">
+      <input
+        type="text"
+        value={websiteData[field]}
+        onChange={(e) => handleInputChange(field, e.target.value)}
+        className={`${className} bg-transparent border-2 border-transparent hover:border-blue-300 focus:border-blue-500 focus:outline-none transition-all duration-200 w-full resize-none`}
+        style={style}
+        placeholder={placeholder}
+      />
+      <Button
+        size="sm"
+        onClick={() => openAiModal(field)}
+        className="absolute -right-2 -top-2 opacity-0 group-hover:opacity-100 transition-opacity bg-blue-600 hover:bg-blue-700 w-6 h-6 p-0 rounded-full"
+      >
+        <Sparkles className="w-3 h-3" />
+      </Button>
+    </div>
+  );
+
+  // EditableImage Component
+  const EditableImage = ({ field, className, alt }) => (
+    <div className="group relative">
+      <img
+        src={websiteData[field]}
+        alt={alt}
+        className={`${className} transition-all duration-200`}
+      />
+      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-[99]">
+        <Button
+          size="sm"
+          onClick={() => handleImageUpload(field)}
+          className="bg-white text-black hover:bg-gray-100"
+        >
+          <ImageIcon className="w-4 h-4 mr-2" />
+          Ubah Gambar
+        </Button>
+      </div>
+    </div>
+  );
   const router = useRouter();
   const [selectedTemplate, setSelectedTemplate] = useState(null);
   const [websiteData, setWebsiteData] = useState({
@@ -17,8 +60,8 @@ export default function MakeWebsite() {
     primaryColor: '#3B82F6',
     secondaryColor: '#10B981',
     whatsappNumber: '628123456789',
-    heroTitle: 'Selamat Datang di Website Kami',
-    heroSubtitle: 'Kami menyediakan solusi terbaik untuk kebutuhan Anda',
+    heroTitle: 'Website Bagus',
+    heroSubtitle: 'Kami menyediakan solusi terbaik untuk anda',
     ctaText: 'Mulai Sekarang',
     aboutTitle: 'Tentang Kami',
     aboutText: 'Kami adalah perusahaan yang berkomitmen memberikan layanan terbaik kepada pelanggan dengan pengalaman bertahun-tahun di bidangnya.',
@@ -37,6 +80,8 @@ export default function MakeWebsite() {
   const [devicePreview, setDevicePreview] = useState('desktop'); // desktop, tablet, mobile
   const [isPublishing, setIsPublishing] = useState(false);
   const [publishProgress, setPublishProgress] = useState(0);
+  // Fix: menuOpen state for mobile hamburger menu
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     // Get selected template from localStorage
@@ -249,702 +294,401 @@ export default function MakeWebsite() {
     }
   };
 
+  // WhatsApp Button Component (move outside so it's always defined)
+  const WhatsAppButton = () => (
+    <div className="fixed bottom-4 lg:bottom-6 right-4 lg:right-6 z-50">
+      <a
+        href={`https://wa.me/${websiteData.whatsappNumber}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+      >
+        <MessageCircle className="w-5 h-5 lg:w-6 lg:h-6 group-hover:scale-110 transition-transform" />
+      </a>
+    </div>
+  );
+
   const renderFullWebsitePreview = () => {
     if (!selectedTemplate) return null;
 
-    // WhatsApp Button Component
-    const WhatsAppButton = () => (
-      <div className="fixed bottom-4 lg:bottom-6 right-4 lg:right-6 z-50">
-        <a
-          href={`https://wa.me/${websiteData.whatsappNumber}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
-        >
-          <MessageCircle className="w-5 h-5 lg:w-6 lg:h-6 group-hover:scale-110 transition-transform" />
-        </a>
-      </div>
-    );
-
-    const EditableText = ({ field, className, style, placeholder }) => (
-      <div className="group relative">
-        <input
-          type="text"
-          value={websiteData[field]}
-          onChange={(e) => handleInputChange(field, e.target.value)}
-          className={`${className} bg-transparent border-2 border-transparent hover:border-blue-300 focus:border-blue-500 focus:outline-none transition-all duration-200 w-full resize-none`}
-          style={style}
-          placeholder={placeholder}
-        />
-        <Button
-          size="sm"
-          onClick={() => openAiModal(field)}
-          className="absolute -right-2 -top-2 opacity-0 group-hover:opacity-100 transition-opacity bg-blue-600 hover:bg-blue-700 w-6 h-6 p-0 rounded-full"
-        >
-          <Sparkles className="w-3 h-3" />
-        </Button>
-      </div>
-    );
-
-    const EditableImage = ({ field, className, alt }) => (
-      <div className="group relative">
-        <img
-          src={websiteData[field]}
-          alt={alt}
-          className={`${className} transition-all duration-200`}
-        />
-        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-[99]">
-          <Button
-            size="sm"
-            onClick={() => handleImageUpload(field)}
-            className="bg-white text-black hover:bg-gray-100"
-          >
-            <ImageIcon className="w-4 h-4 mr-2" />
-            Ubah Gambar
-          </Button>
-        </div>
-      </div>
-    );
-
-    return (
-      <div className="w-full bg-white border-0 overflow-hidden shadow-lg" style={{ minHeight: '800px' }}>
-        {selectedTemplate.id === 1 && (
-          // Modern Minimalist Website
-          <div className="w-full relative overflow-x-hidden">
+    // Device-specific layouts
+    const device = devicePreview;
+    // Responsive layout for all templates
+    if ([1,2,3,4].includes(selectedTemplate.id)) {
+      // ...copy the entire minimalist responsive layout here...
+      if (device === 'mobile') {
+        // ...mobile layout (same as minimalist, but can be customized per template if needed)...
+        return (
+          <div className="w-full bg-white border-0 overflow-hidden shadow-lg" style={{ minHeight: '800px', maxWidth: '375px', margin: '0 auto', borderRadius: '16px' }}>
             <WhatsAppButton />
-            {/* Modern Header with Glass Effect */}
-            <header className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-gray-200/50">
-              <div className="flex items-center justify-between px-3 py-3 sm:px-4 sm:py-4 lg:px-6 lg:py-6 max-w-7xl mx-auto">
-                <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-                  <EditableImage
-                    field="logoImage"
-                    className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-lg lg:rounded-xl object-cover flex-shrink-0"
-                    alt="Logo"
-                  />
-                  <EditableText
-                    field="title"
-                    className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 truncate"
-                    placeholder="Brand Name"
-                  />
-                </div>
-                <nav className="hidden md:flex space-x-3 lg:space-x-6 xl:space-x-8">
-                  <span className="text-gray-600 hover:text-gray-900 cursor-pointer font-medium transition-colors text-sm lg:text-base whitespace-nowrap">Home</span>
-                  <span className="text-gray-600 hover:text-gray-900 cursor-pointer font-medium transition-colors text-sm lg:text-base whitespace-nowrap">About</span>
-                  <span className="text-gray-600 hover:text-gray-900 cursor-pointer font-medium transition-colors text-sm lg:text-base whitespace-nowrap">Services</span>
-                  <span className="text-gray-600 hover:text-gray-900 cursor-pointer font-medium transition-colors text-sm lg:text-base whitespace-nowrap">Contact</span>
-                </nav>
-                <button 
-                  className="px-3 py-2 sm:px-4 sm:py-2 lg:px-6 lg:py-2 rounded-full font-medium text-white transition-all hover:shadow-lg text-xs sm:text-sm lg:text-base whitespace-nowrap flex-shrink-0"
-                  style={{ backgroundColor: websiteData.primaryColor }}
+            {/* Mobile Header with Hamburger */}
+            <header className="sticky top-0 z-50 bg-white border-b border-gray-200 flex items-center justify-between px-4 py-3">
+              <div className="flex items-center gap-2 min-w-0 flex-1">
+                <EditableImage field="logoImage" className="w-8 h-8 rounded-lg object-cover" alt="Logo" />
+                <EditableText field="title" className="text-lg font-bold text-gray-900 truncate" placeholder="Brand Name" />
+              </div>
+              {/* Hamburger menu (interactive) */}
+              <div className="relative">
+                <button
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200"
+                  onClick={() => setMenuOpen((open) => !open)}
+                  aria-label="Open menu"
                 >
-                  Get Started
+                  {/* SVG Hamburger Icon */}
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="7" width="16" height="2" rx="1" fill="#374151" />
+                    <rect x="4" y="11" width="16" height="2" rx="1" fill="#374151" />
+                    <rect x="4" y="15" width="16" height="2" rx="1" fill="#374151" />
+                  </svg>
                 </button>
+                {menuOpen && (
+                  <div className="absolute right-0 mt-2 w-32 bg-white border rounded shadow-lg z-10">
+                    <div className="flex flex-col">
+                      <span className="px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">Home</span>
+                      <span className="px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">About</span>
+                      <span className="px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">Services</span>
+                      <span className="px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">Contact</span>
+                    </div>
+                  </div>
+                )}
               </div>
             </header>
-
-            {/* Modern Hero Section with Gradient */}
-            <section className="relative py-8 sm:py-12 lg:py-24 px-3 sm:px-4 lg:px-6 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-50"></div>
-              <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-                <div className="order-2 lg:order-1 text-center lg:text-left">
-                  <EditableText
-                    field="heroTitle"
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 text-gray-900 leading-tight"
-                    placeholder="Transform Your Business"
-                  />
-                  <EditableText
-                    field="heroSubtitle"
-                    className="text-base sm:text-lg lg:text-xl text-gray-600 mb-4 sm:mb-6 lg:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0"
-                    placeholder="We help businesses grow with cutting-edge solutions"
-                  />
-                  <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center lg:justify-start">
-                    <EditableText
-                      field="ctaText"
-                      className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full font-semibold text-white shadow-lg hover:shadow-xl transition-all cursor-pointer text-center text-sm sm:text-base"
-                      style={{ backgroundColor: websiteData.secondaryColor }}
-                      placeholder="Start Now"
-                    />
-                    <button className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full font-semibold text-gray-700 border-2 border-gray-300 hover:border-gray-400 transition-all text-sm sm:text-base">
-                      Learn More
-                    </button>
-                  </div>
+            {/* Stacked Hero Section */}
+            <section className="py-6 px-4">
+              <EditableText field="heroTitle" className="text-xl font-bold mb-2 text-gray-900" placeholder="Transform Your Business" />
+              <EditableText field="heroSubtitle" className="text-base text-gray-600 mb-4" placeholder="We help businesses grow with cutting-edge solutions" />
+              <EditableText field="ctaText" className="px-4 py-2 rounded-full font-semibold text-white shadow-lg transition-all cursor-pointer text-center text-sm" style={{ backgroundColor: websiteData.secondaryColor }} placeholder="Start Now" />
+              <EditableImage field="heroImage" className="w-full h-40 object-cover rounded-xl mt-4" alt="Hero" />
+            </section>
+            {/* About Section */}
+            <section className="py-6 px-4 bg-gray-50">
+              <EditableImage field="aboutImage" className="w-full h-32 object-cover rounded-xl mb-2" alt="About Us" />
+              <EditableText field="aboutTitle" className="text-lg font-bold mb-2 text-gray-900" placeholder="Why Choose Us?" />
+              <EditableText field="aboutText" className="text-sm text-gray-600 mb-2" placeholder="We are a forward-thinking company dedicated to delivering exceptional results..." />
+              <div className="flex justify-between mt-2">
+                <div className="text-center">
+                  <div className="text-lg font-bold" style={{ color: websiteData.primaryColor }}>10+</div>
+                  <div className="text-xs text-gray-600">Years</div>
                 </div>
-                <div className="relative order-1 lg:order-2">
-                  <EditableImage
-                    field="heroImage"
-                    className="w-full h-48 sm:h-64 lg:h-96 object-cover rounded-xl lg:rounded-2xl shadow-xl lg:shadow-2xl"
-                    alt="Hero"
-                  />
-                  <div className="absolute -bottom-2 sm:-bottom-3 lg:-bottom-6 -left-2 sm:-left-3 lg:-left-6 w-8 sm:w-12 lg:w-24 h-8 sm:h-12 lg:h-24 rounded-xl lg:rounded-2xl shadow-lg" style={{ backgroundColor: websiteData.primaryColor, opacity: 0.1 }}></div>
-                  <div className="absolute -top-2 sm:-top-3 lg:-top-6 -right-2 sm:-right-3 lg:-right-6 w-6 sm:w-8 lg:w-16 h-6 sm:h-8 lg:h-16 rounded-lg lg:rounded-xl shadow-lg" style={{ backgroundColor: websiteData.secondaryColor, opacity: 0.1 }}></div>
+                <div className="text-center">
+                  <div className="text-lg font-bold" style={{ color: websiteData.secondaryColor }}>500+</div>
+                  <div className="text-xs text-gray-600">Clients</div>
                 </div>
               </div>
             </section>
-
-            {/* Modern About Section */}
-            <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-6 bg-gray-50">
-              <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
-                <div className="relative order-2 lg:order-1">
-                  <EditableImage
-                    field="aboutImage"
-                    className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded-xl lg:rounded-2xl shadow-lg lg:shadow-xl"
-                    alt="About Us"
-                  />
-                  <div className="absolute inset-0 rounded-xl lg:rounded-2xl ring-1 ring-black/5"></div>
-                </div>
-                <div className="order-1 lg:order-2 text-center lg:text-left">
-                  <EditableText
-                    field="aboutTitle"
-                    className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 lg:mb-6 text-gray-900"
-                    placeholder="Why Choose Us?"
-                  />
-                  <EditableText
-                    field="aboutText"
-                    className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6 lg:mb-8 max-w-2xl mx-auto lg:mx-0"
-                    placeholder="We are a forward-thinking company dedicated to delivering exceptional results..."
-                  />
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6 max-w-md mx-auto lg:mx-0">
-                    <div className="text-center">
-                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold" style={{ color: websiteData.primaryColor }}>10+</div>
-                      <div className="text-xs sm:text-sm lg:text-base text-gray-600">Years Experience</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold" style={{ color: websiteData.secondaryColor }}>500+</div>
-                      <div className="text-xs sm:text-sm lg:text-base text-gray-600">Happy Clients</div>
+            {/* Services Section */}
+            <section className="py-6 px-4">
+              <EditableText field="servicesTitle" className="text-lg font-bold mb-2 text-gray-900" placeholder="Our Services" />
+              <div className="flex flex-col gap-3">
+                {[{ field: 'serviceImage1', title: 'Digital Strategy', desc: 'Digital transformation strategies' }, { field: 'serviceImage2', title: 'Design & Development', desc: 'Beautiful digital experiences' }, { field: 'serviceImage3', title: 'Marketing Solutions', desc: 'Marketing campaigns' }].map((service, i) => (
+                  <div key={i} className="bg-white rounded-xl shadow p-2 flex gap-2 items-center">
+                    <EditableImage field={service.field} className="w-16 h-16 object-cover rounded-lg" alt={service.title} />
+                    <div>
+                      <h3 className="text-base font-semibold text-gray-900">{service.title}</h3>
+                      <p className="text-xs text-gray-600">{service.desc}</p>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
             </section>
-
-            {/* Modern Services Section */}
-            <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-6">
-              <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-6 sm:mb-8 lg:mb-16">
-                  <EditableText
-                    field="servicesTitle"
-                    className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-gray-900"
-                    placeholder="Our Services"
-                  />
-                  <p className="text-sm sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive solutions for your business needs</p>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                  {[
-                    { field: 'serviceImage1', title: 'Digital Strategy', desc: 'Comprehensive digital transformation strategies' },
-                    { field: 'serviceImage2', title: 'Design & Development', desc: 'Beautiful and functional digital experiences' },
-                    { field: 'serviceImage3', title: 'Marketing Solutions', desc: 'Data-driven marketing campaigns' }
-                  ].map((service, i) => (
-                    <div key={i} className="group bg-white rounded-xl lg:rounded-2xl shadow-md hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 overflow-hidden">
-                      <EditableImage
-                        field={service.field}
-                        className="w-full h-32 sm:h-40 lg:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                        alt={service.title}
-                      />
-                      <div className="p-3 sm:p-4 lg:p-6">
-                        <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-1 sm:mb-2 lg:mb-3 text-gray-900">{service.title}</h3>
-                        <p className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed">{service.desc}</p>
-                        <button 
-                          className="mt-2 sm:mt-3 lg:mt-4 text-xs sm:text-sm font-semibold hover:underline transition-all"
-                          style={{ color: websiteData.primaryColor }}
-                        >
-                          Learn More →
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            {/* Contact Section */}
+            <section className="py-6 px-4 bg-gray-900 text-white">
+              <EditableText field="contactTitle" className="text-lg font-bold mb-2 text-white" placeholder="Ready to Get Started?" />
+              <EditableText field="contactText" className="text-sm text-gray-300 mb-2" placeholder="Let's discuss how we can help transform your business" />
+              <button className="px-4 py-2 rounded-full font-semibold text-white shadow-lg transition-all text-sm" style={{ backgroundColor: websiteData.primaryColor }}>Contact Us</button>
             </section>
-
-            {/* Modern Contact Section */}
-            <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-6 bg-gray-900 text-white">
-              <div className="max-w-4xl mx-auto text-center">
-                <EditableText
-                  field="contactTitle"
-                  className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 lg:mb-6 text-white"
-                  placeholder="Ready to Get Started?"
-                />
-                <EditableText
-                  field="contactText"
-                  className="text-sm sm:text-lg lg:text-xl text-gray-300 mb-4 sm:mb-6 lg:mb-8 max-w-2xl mx-auto"
-                  placeholder="Let's discuss how we can help transform your business"
-                />
-                <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center">
-                  <button 
-                    className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full font-semibold text-white shadow-lg hover:shadow-xl transition-all text-sm sm:text-base"
-                    style={{ backgroundColor: websiteData.primaryColor }}
-                  >
-                    Contact Us
-                  </button>
-                  <button className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full font-semibold text-white border-2 border-white/20 hover:border-white/40 transition-all text-sm sm:text-base">
-                    Schedule a Call
-                  </button>
-                </div>
-              </div>
-            </section>
-
-            {/* Modern Footer */}
-            <footer className="py-6 sm:py-8 lg:py-12 px-3 sm:px-4 lg:px-6 bg-black text-white">
-              <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-                  <div className="sm:col-span-2 lg:col-span-1">
-                    <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                      <img src={websiteData.logoImage} alt="Logo" className="w-5 sm:w-6 lg:w-8 h-5 sm:h-6 lg:h-8 rounded-md lg:rounded-lg" />
-                      <span className="text-base sm:text-lg lg:text-xl font-bold">{websiteData.title}</span>
-                    </div>
-                    <p className="text-xs sm:text-sm lg:text-base text-gray-400 pr-0 sm:pr-4">{websiteData.description}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2 sm:mb-3 lg:mb-4 text-sm lg:text-base">Services</h4>
-                    <div className="space-y-1 lg:space-y-2 text-gray-400 text-xs sm:text-sm lg:text-base">
-                      <div>Digital Strategy</div>
-                      <div>Web Development</div>
-                      <div>Marketing</div>
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2 sm:mb-3 lg:mb-4 text-sm lg:text-base">Company</h4>
-                    <div className="space-y-1 lg:space-y-2 text-gray-400 text-xs sm:text-sm lg:text-base">
-                      <div>About Us</div>
-                      <div>Careers</div>
-                      <div>Contact</div>
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2 sm:mb-3 lg:mb-4 text-sm lg:text-base">Connect</h4>
-                    <div className="space-y-1 lg:space-y-2 text-gray-400 text-xs sm:text-sm lg:text-base">
-                      <div>LinkedIn</div>
-                      <div>Twitter</div>
-                      <div>Instagram</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="border-t border-gray-800 mt-4 sm:mt-6 lg:mt-8 pt-4 sm:pt-6 lg:pt-8 text-center text-gray-400">
-                  <p className="text-xs sm:text-sm lg:text-base">&copy; 2025 {websiteData.title}. All rights reserved.</p>
-                </div>
-              </div>
+            {/* Footer */}
+            <footer className="py-4 px-4 bg-black text-white text-center rounded-b-xl">
+              <span className="text-xs">&copy; 2025 {websiteData.title}. All rights reserved.</span>
             </footer>
           </div>
-        )}
-
-        {selectedTemplate.id === 2 && (
-          // Modern Brutalism Website
-          <div className="w-full bg-black text-white relative overflow-x-hidden">
+        );
+      } else if (device === 'tablet') {
+        // ...tablet layout (same as minimalist, but can be customized per template if needed)...
+        return (
+          <div className="w-full bg-white border-0 overflow-hidden shadow-lg" style={{ minHeight: '800px', maxWidth: '768px', margin: '0 auto', borderRadius: '20px' }}>
             <WhatsAppButton />
-            {/* Bold Header */}
-            <header className="flex items-center justify-between px-3 py-3 sm:px-4 sm:py-4 lg:px-8 lg:py-8 border-b border-gray-800">
-              <div className="flex items-center gap-1 sm:gap-2 lg:gap-4 min-w-0 flex-1">
+            {/* Tablet Header */}
+            <header className="sticky top-0 z-50 bg-white border-b border-gray-200 flex items-center justify-between px-6 py-4">
+              <div className="flex items-center gap-3 min-w-0 flex-1">
+                <EditableImage field="logoImage" className="w-10 h-10 rounded-xl object-cover" alt="Logo" />
+                <EditableText field="title" className="text-xl font-bold text-gray-900 truncate" placeholder="Brand Name" />
+              </div>
+              <nav className="flex gap-4 flex-1 justify-center">
+                <span className="text-gray-600 hover:text-gray-900 cursor-pointer font-medium text-base">Home</span>
+                <span className="text-gray-600 hover:text-gray-900 cursor-pointer font-medium text-base">About</span>
+                <span className="text-gray-600 hover:text-gray-900 cursor-pointer font-medium text-base">Services</span>
+                <span className="text-gray-600 hover:text-gray-900 cursor-pointer font-medium text-base">Contact</span>
+              </nav>
+              <button className="px-6 py-2 rounded-full font-medium text-white transition-all hover:shadow-lg text-base ml-4" style={{ backgroundColor: websiteData.primaryColor }}>Get Started</button>
+            </header>
+            {/* ...sections: hero, about, services, contact, footer... */}
+            <section className="py-8 px-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div>
+                  <EditableText field="heroTitle" className="text-3xl font-bold mb-3 text-gray-900" placeholder="Transform Your Business" />
+                  <EditableText field="heroSubtitle" className="text-lg text-gray-600 mb-4" placeholder="We help businesses grow with cutting-edge solutions" />
+                  <EditableText field="ctaText" className="px-6 py-3 rounded-full font-semibold text-white shadow-lg transition-all cursor-pointer text-center text-base" style={{ backgroundColor: websiteData.secondaryColor }} placeholder="Start Now" />
+                </div>
+                <EditableImage field="heroImage" className="w-full h-64 object-cover rounded-xl" alt="Hero" />
+              </div>
+            </section>
+            <section className="py-8 px-6 bg-gray-50">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <EditableImage field="aboutImage" className="w-full h-48 object-cover rounded-xl" alt="About Us" />
+                <div>
+                  <EditableText field="aboutTitle" className="text-2xl font-bold mb-2 text-gray-900" placeholder="Why Choose Us?" />
+                  <EditableText field="aboutText" className="text-base text-gray-600 mb-2" placeholder="We are a forward-thinking company dedicated to delivering exceptional results..." />
+                  <div className="flex gap-6 mt-2">
+                    <div className="text-center">
+                      <div className="text-xl font-bold" style={{ color: websiteData.primaryColor }}>10+</div>
+                      <div className="text-sm text-gray-600">Years</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-xl font-bold" style={{ color: websiteData.secondaryColor }}>500+</div>
+                      <div className="text-sm text-gray-600">Clients</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section className="py-8 px-6">
+              <EditableText field="servicesTitle" className="text-2xl font-bold mb-2 text-gray-900" placeholder="Our Services" />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {[{ field: 'serviceImage1', title: 'Digital Strategy', desc: 'Digital transformation strategies' }, { field: 'serviceImage2', title: 'Design & Development', desc: 'Beautiful digital experiences' }, { field: 'serviceImage3', title: 'Marketing Solutions', desc: 'Marketing campaigns' }].map((service, i) => (
+                  <div key={i} className="bg-white rounded-xl shadow p-4 flex flex-col items-center">
+                    <EditableImage field={service.field} className="w-24 h-24 object-cover rounded-lg mb-2" alt={service.title} />
+                    <h3 className="text-lg font-semibold text-gray-900">{service.title}</h3>
+                    <p className="text-sm text-gray-600">{service.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <section className="py-8 px-6 bg-gray-900 text-white">
+              <EditableText field="contactTitle" className="text-2xl font-bold mb-2 text-white" placeholder="Ready to Get Started?" />
+              <EditableText field="contactText" className="text-base text-gray-300 mb-2" placeholder="Let's discuss how we can help transform your business" />
+              <button className="px-6 py-3 rounded-full font-semibold text-white shadow-lg transition-all text-base" style={{ backgroundColor: websiteData.primaryColor }}>Contact Us</button>
+            </section>
+            <footer className="py-6 px-6 bg-black text-white text-center rounded-b-xl">
+              <span className="text-base">&copy; 2025 {websiteData.title}. All rights reserved.</span>
+            </footer>
+          </div>
+        );
+      }
+      // Desktop (default) layout
+      return (
+        <div className="w-full bg-white border-0 overflow-hidden shadow-lg" style={{ minHeight: '800px' }}>
+          <WhatsAppButton />
+          {/* Modern Header with Glass Effect */}
+          <header className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-gray-200/50">
+            <div className="flex items-center justify-between px-3 py-3 sm:px-4 sm:py-4 lg:px-6 lg:py-6 max-w-7xl mx-auto">
+              <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
                 <EditableImage
                   field="logoImage"
-                  className="w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 rounded object-cover flex-shrink-0"
+                  className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-lg lg:rounded-xl object-cover flex-shrink-0"
                   alt="Logo"
                 />
                 <EditableText
                   field="title"
-                  className="text-base sm:text-xl lg:text-3xl font-black text-white tracking-tight truncate"
-                  placeholder="BRAND"
+                  className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 truncate"
+                  placeholder="Brand Name"
                 />
               </div>
-              <div className="px-2 py-1 sm:px-3 sm:py-2 lg:px-6 lg:py-3 font-black text-black text-xs lg:text-sm tracking-wider flex-shrink-0" style={{ backgroundColor: websiteData.secondaryColor }}>
-                NEW ARRIVAL
-              </div>
-            </header>
-
-            {/* Bold Hero Section */}
-            <section className="py-8 sm:py-16 lg:py-32 px-3 sm:px-4 lg:px-8 relative overflow-hidden">
-              <div className="absolute inset-0">
-                <EditableImage
-                  field="heroImage"
-                  className="w-full h-full object-cover opacity-20"
-                  alt="Hero Background"
-                />
-              </div>
-              <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
-                <div className="order-2 lg:order-1 text-center lg:text-left">
-                  <EditableText
-                    field="heroTitle"
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 lg:mb-8 text-white leading-none tracking-tighter"
-                    placeholder="BOLD STATEMENT"
-                  />
-                  <EditableText
-                    field="heroSubtitle"
-                    className="text-base sm:text-lg lg:text-2xl mb-6 sm:mb-8 lg:mb-12 text-gray-300 font-medium max-w-2xl mx-auto lg:mx-0"
-                    placeholder="Breaking conventional design rules"
-                  />
-                  <div className="flex items-center gap-3 sm:gap-4 lg:gap-8 justify-center lg:justify-start">
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 lg:w-4 lg:h-4 rounded-full" style={{ backgroundColor: websiteData.primaryColor }}></div>
-                    <div className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 rounded-full" style={{ backgroundColor: websiteData.secondaryColor }}></div>
-                    <div className="w-3 h-3 sm:w-4 sm:h-4 lg:w-6 lg:h-6 rounded-full bg-white"></div>
-                  </div>
-                </div>
-                <div className="relative order-1 lg:order-2">
-                  <div className="absolute -inset-1 sm:-inset-2 lg:-inset-4 border border-white sm:border-2 lg:border-4"></div>
-                  <EditableImage
-                    field="aboutImage"
-                    className="w-full h-48 sm:h-64 lg:h-96 object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                    alt="Feature"
-                  />
-                </div>
-              </div>
-            </section>
-
-            {/* Bold Content Grid */}
-            <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-8 bg-gray-900">
-              <div className="max-w-7xl mx-auto">
+              <nav className="hidden md:flex flex-1 justify-center space-x-3 lg:space-x-6 xl:space-x-8">
+                <span className="text-gray-600 hover:text-gray-900 cursor-pointer font-medium transition-colors text-sm lg:text-base whitespace-nowrap">Home</span>
+                <span className="text-gray-600 hover:text-gray-900 cursor-pointer font-medium transition-colors text-sm lg:text-base whitespace-nowrap">About</span>
+                <span className="text-gray-600 hover:text-gray-900 cursor-pointer font-medium transition-colors text-sm lg:text-base whitespace-nowrap">Services</span>
+                <span className="text-gray-600 hover:text-gray-900 cursor-pointer font-medium transition-colors text-sm lg:text-base whitespace-nowrap">Contact</span>
+              </nav>
+              <button 
+                className="px-6 py-2 rounded-full font-medium text-white transition-all hover:shadow-lg text-base ml-4"
+                style={{ backgroundColor: websiteData.primaryColor }}
+              >
+                Get Started
+              </button>
+            </div>
+          </header>
+          {/* Modern Hero Section with Gradient */}
+          <section className="relative py-8 sm:py-12 lg:py-24 px-3 sm:px-4 lg:px-6 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-50"></div>
+            <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+              <div className="order-2 lg:order-1 text-center lg:text-left">
                 <EditableText
-                  field="aboutTitle"
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6 sm:mb-8 lg:mb-16 text-white text-center tracking-tight"
-                  placeholder="EXPERIENCE MATTERS"
-                />
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                  {[
-                    { field: 'serviceImage1', num: '01', title: 'STRATEGY' },
-                    { field: 'serviceImage2', num: '02', title: 'DESIGN' },
-                    { field: 'serviceImage3', num: '03', title: 'DEVELOPMENT' }
-                  ].map((item, i) => (
-                    <div key={i} className="group">
-                      <div className="relative overflow-hidden">
-                        <EditableImage
-                          field={item.field}
-                          className="w-full h-32 sm:h-48 lg:h-64 object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
-                          alt={item.title}
-                        />
-                        <div className="absolute top-1 sm:top-2 lg:top-4 left-1 sm:left-2 lg:left-4 text-2xl sm:text-4xl lg:text-6xl font-black text-white/20">{item.num}</div>
-                      </div>
-                      <div className="p-3 sm:p-4 lg:p-6 bg-black border border-gray-800">
-                        <h3 className="text-base sm:text-lg lg:text-2xl font-black text-white mb-1 lg:mb-2">{item.title}</h3>
-                        <p className="text-xs sm:text-sm lg:text-base text-gray-400">AGGRESSIVE APPROACH TO DIGITAL SOLUTIONS</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            {/* Contact */}
-            <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-8 bg-black border-t border-gray-800">
-              <div className="max-w-4xl mx-auto text-center">
-                <EditableText
-                  field="contactTitle"
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 lg:mb-8 text-white tracking-tight"
-                  placeholder="LETS TALK"
+                  field="heroTitle"
+                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 text-gray-900 leading-tight"
+                  placeholder="Transform Your Business"
                 />
                 <EditableText
-                  field="contactText"
-                  className="text-sm sm:text-lg lg:text-xl text-gray-400 mb-6 sm:mb-8 lg:mb-12 font-medium max-w-2xl mx-auto"
-                  placeholder="Ready to break the rules together?"
+                  field="heroSubtitle"
+                  className="text-base sm:text-lg lg:text-xl text-gray-600 mb-4 sm:mb-6 lg:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                  placeholder="We help businesses grow with cutting-edge solutions"
                 />
-                <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center">
-                  <button 
-                    className="px-6 sm:px-8 lg:px-12 py-2 sm:py-3 lg:py-4 font-black text-black text-sm sm:text-base lg:text-lg tracking-wider hover:scale-105 transition-transform"
-                    style={{ backgroundColor: websiteData.primaryColor }}
-                  >
-                    CONTACT NOW
-                  </button>
-                </div>
-              </div>
-            </section>
-
-            {/* Footer */}
-            <footer className="py-4 sm:py-6 lg:py-8 px-3 sm:px-4 lg:px-8 bg-black border-t border-gray-800 text-center">
-              <p className="text-xs sm:text-sm lg:text-base text-gray-500 font-medium">{websiteData.title} - EXPERIENCE MATTERS</p>
-            </footer>
-          </div>
-        )}
-
-        {selectedTemplate.id === 3 && (
-          // Modern Glassmorphism Website
-          <div 
-            className="w-full text-white relative min-h-screen overflow-x-hidden"
-            style={{ 
-              background: `linear-gradient(135deg, ${websiteData.primaryColor}, ${websiteData.secondaryColor})`,
-              backgroundImage: `url(${websiteData.heroImage})`,
-              backgroundBlendMode: 'overlay',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}
-          >
-            <WhatsAppButton />
-            {/* Glass Header */}
-            <header className="backdrop-blur-lg bg-white/10 border-b border-white/20 px-3 py-3 sm:px-4 sm:py-4 lg:px-6 lg:py-6">
-              <div className="flex items-center justify-between max-w-7xl mx-auto">
-                <div className="flex items-center gap-1 sm:gap-2 lg:gap-3 min-w-0 flex-1">
-                  <EditableImage
-                    field="logoImage"
-                    className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-full object-cover border border-white/30 sm:border-2 flex-shrink-0"
-                    alt="Logo"
-                  />
-                  <EditableText
-                    field="title"
-                    className="text-base sm:text-lg lg:text-2xl font-bold text-white truncate"
-                    placeholder="GlassApp"
-                  />
-                </div>
-                <nav className="hidden md:flex space-x-3 lg:space-x-6 xl:space-x-8">
-                  <span className="text-white/80 hover:text-white cursor-pointer font-medium text-sm lg:text-base whitespace-nowrap">Home</span>
-                  <span className="text-white/80 hover:text-white cursor-pointer font-medium text-sm lg:text-base whitespace-nowrap">Features</span>
-                  <span className="text-white/80 hover:text-white cursor-pointer font-medium text-sm lg:text-base whitespace-nowrap">Pricing</span>
-                  <span className="text-white/80 hover:text-white cursor-pointer font-medium text-sm lg:text-base whitespace-nowrap">Contact</span>
-                </nav>
-              </div>
-            </header>
-
-            {/* Glass Hero Section */}
-            <section className="py-8 sm:py-16 lg:py-32 px-3 sm:px-4 lg:px-6">
-              <div className="max-w-4xl mx-auto text-center">
-                <div className="backdrop-blur-xl bg-white/10 rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-12 border border-white/20 shadow-2xl">
-                  <EditableText
-                    field="heroTitle"
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 lg:mb-6 text-white"
-                    placeholder="Future of Design"
-                  />
-                  <EditableText
-                    field="heroSubtitle"
-                    className="text-sm sm:text-base lg:text-xl mb-4 sm:mb-6 lg:mb-8 text-white/90 max-w-2xl mx-auto"
-                    placeholder="Experience the beauty of glass morphism design"
-                  />
+                <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center lg:justify-start">
                   <EditableText
                     field="ctaText"
-                    className="inline-block px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 bg-white/20 backdrop-blur-lg rounded-full text-white font-semibold border border-white/30 hover:bg-white/30 transition-all cursor-pointer text-xs sm:text-sm lg:text-base"
-                    placeholder="Get Started"
+                    className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full font-semibold text-white shadow-lg hover:shadow-xl transition-all cursor-pointer text-center text-sm sm:text-base"
+                    style={{ backgroundColor: websiteData.secondaryColor }}
+                    placeholder="Start Now"
                   />
-                </div>
-              </div>
-            </section>
-
-            {/* Glass Features */}
-            <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-6">
-              <div className="max-w-7xl mx-auto">
-                <div className="backdrop-blur-xl bg-white/5 rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-12 border border-white/10">
-                  <EditableText
-                    field="aboutTitle"
-                    className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 lg:mb-12 text-white text-center"
-                    placeholder="Why Choose Glass Design?"
-                  />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                    {[
-                      { field: 'serviceImage1', title: 'Modern Aesthetics', desc: 'Beautiful glass-like interfaces' },
-                      { field: 'serviceImage2', title: 'Smooth Interactions', desc: 'Fluid and responsive design' },
-                      { field: 'serviceImage3', title: 'Future Ready', desc: 'Next-generation user experience' }
-                    ].map((feature, i) => (
-                      <div key={i} className="backdrop-blur-lg bg-white/10 rounded-lg sm:rounded-xl lg:rounded-2xl p-3 sm:p-4 lg:p-6 border border-white/20 hover:bg-white/20 transition-all">
-                        <EditableImage
-                          field={feature.field}
-                          className="w-full h-24 sm:h-32 lg:h-40 object-cover rounded-md sm:rounded-lg lg:rounded-xl mb-2 sm:mb-3 lg:mb-4 opacity-90"
-                          alt={feature.title}
-                        />
-                        <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-1 sm:mb-2 lg:mb-3 text-white">{feature.title}</h3>
-                        <p className="text-xs sm:text-sm lg:text-base text-white/80">{feature.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Glass Contact */}
-            <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-6">
-              <div className="max-w-4xl mx-auto">
-                <div className="backdrop-blur-xl bg-white/10 rounded-xl sm:rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-12 border border-white/20 text-center">
-                  <EditableText
-                    field="contactTitle"
-                    className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 lg:mb-6 text-white"
-                    placeholder="Ready to Experience Glass?"
-                  />
-                  <EditableText
-                    field="contactText"
-                    className="text-sm sm:text-lg lg:text-xl text-white/90 mb-4 sm:mb-6 lg:mb-8 max-w-2xl mx-auto"
-                    placeholder="Join thousands of users enjoying our glass interface"
-                  />
-                  <button 
-                    className="px-6 sm:px-8 lg:px-10 py-2 sm:py-3 lg:py-4 bg-white/20 backdrop-blur-lg rounded-full text-white font-semibold border border-white/30 hover:bg-white/30 transition-all text-xs sm:text-sm lg:text-base"
-                  >
-                    Contact Us
+                  <button className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full font-semibold text-gray-700 border-2 border-gray-300 hover:border-gray-400 transition-all text-sm sm:text-base">
+                    Learn More
                   </button>
                 </div>
               </div>
-            </section>
-
-            {/* Glass Footer */}
-            <footer className="py-4 sm:py-6 lg:py-8 px-3 sm:px-4 lg:px-6 backdrop-blur-lg bg-white/5 border-t border-white/10">
-              <div className="max-w-7xl mx-auto text-center">
-                <p className="text-xs sm:text-sm lg:text-base text-white/70">{websiteData.title} - Innovation in Glass Design</p>
+              <div className="relative order-1 lg:order-2">
+                <EditableImage
+                  field="heroImage"
+                  className="w-full h-48 sm:h-64 lg:h-96 object-cover rounded-xl lg:rounded-2xl shadow-xl lg:shadow-2xl"
+                  alt="Hero"
+                />
+                <div className="absolute -bottom-2 sm:-bottom-3 lg:-bottom-6 -left-2 sm:-left-3 lg:-left-6 w-8 sm:w-12 lg:w-24 h-8 sm:h-12 lg:h-24 rounded-xl lg:rounded-2xl shadow-lg" style={{ backgroundColor: websiteData.primaryColor, opacity: 0.1 }}></div>
+                <div className="absolute -top-2 sm:-top-3 lg:-top-6 -right-2 sm:-right-3 lg:-right-6 w-6 sm:w-8 lg:w-16 h-6 sm:h-8 lg:h-16 rounded-lg lg:rounded-xl shadow-lg" style={{ backgroundColor: websiteData.secondaryColor, opacity: 0.1 }}></div>
               </div>
-            </footer>
-          </div>
-        )}
-
-        {selectedTemplate.id === 4 && (
-          // Modern Neumorphism Website  
-          <div className="w-full bg-gradient-to-br from-gray-100 to-gray-300 min-h-screen relative overflow-x-hidden">
-            <WhatsAppButton />
-            {/* Soft Header */}
-            <header className="px-3 py-3 sm:px-4 sm:py-4 lg:px-8 lg:py-8">
-              <div 
-                className="flex items-center justify-between max-w-7xl mx-auto px-3 py-3 sm:px-4 sm:py-4 lg:px-6 lg:py-6 rounded-xl sm:rounded-2xl lg:rounded-3xl"
-                style={{ boxShadow: '8px 8px 16px #bebebe, -8px -8px 16px #ffffff' }}
-              >
-                <div className="flex items-center gap-1 sm:gap-2 lg:gap-4 min-w-0 flex-1">
-                  <EditableImage
-                    field="logoImage"
-                    className="w-6 h-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl lg:rounded-2xl object-cover flex-shrink-0"
-                    style={{ boxShadow: 'inset 3px 3px 6px #bebebe, inset -3px -3px 6px #ffffff' }}
-                    alt="Logo"
-                  />
-                  <EditableText
-                    field="title"
-                    className="text-base sm:text-lg lg:text-2xl font-bold text-gray-800 truncate"
-                    placeholder="SoftDesign"
-                  />
-                </div>
-                <nav className="hidden md:flex space-x-3 lg:space-x-6 xl:space-x-8">
-                  <span className="text-gray-600 hover:text-gray-800 cursor-pointer font-medium text-sm lg:text-base whitespace-nowrap">Home</span>
-                  <span className="text-gray-600 hover:text-gray-800 cursor-pointer font-medium text-sm lg:text-base whitespace-nowrap">About</span>
-                  <span className="text-gray-600 hover:text-gray-800 cursor-pointer font-medium text-sm lg:text-base whitespace-nowrap">Services</span>
-                  <span className="text-gray-600 hover:text-gray-800 cursor-pointer font-medium text-sm lg:text-base whitespace-nowrap">Contact</span>
-                </nav>
+            </div>
+          </section>
+          {/* Modern About Section */}
+          <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-6 bg-gray-50">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
+              <div className="relative order-2 lg:order-1">
+                <EditableImage
+                  field="aboutImage"
+                  className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded-xl lg:rounded-2xl shadow-lg lg:shadow-xl"
+                  alt="About Us"
+                />
+                <div className="absolute inset-0 rounded-xl lg:rounded-2xl ring-1 ring-black/5"></div>
               </div>
-            </header>
-
-            {/* Soft Hero */}
-            <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-8">
-              <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
-                <div className="order-2 lg:order-1 text-center lg:text-left">
-                  <EditableText
-                    field="heroTitle"
-                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 text-gray-800"
-                    placeholder="Soft & Modern Design"
-                  />
-                  <EditableText
-                    field="heroSubtitle"
-                    className="text-sm sm:text-base lg:text-xl text-gray-600 mb-4 sm:mb-6 lg:mb-8 max-w-2xl mx-auto lg:mx-0"
-                    placeholder="Experience the gentle beauty of neumorphic interfaces"
-                  />
-                  <div className="flex items-center space-x-3 sm:space-x-4 lg:space-x-6 justify-center lg:justify-start">
-                    <div 
-                      className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-lg sm:rounded-xl lg:rounded-2xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform"
-                      style={{ 
-                        backgroundColor: websiteData.primaryColor, 
-                        opacity: 0.8,
-                        boxShadow: '8px 8px 16px #bebebe, -8px -8px 16px #ffffff'
-                      }}
-                    >
-                      <span className="text-white font-bold text-xs sm:text-sm lg:text-base">Start</span>
-                    </div>
-                    <div 
-                      className="w-8 h-8 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-lg sm:rounded-xl lg:rounded-2xl flex items-center justify-center"
-                      style={{ 
-                        backgroundColor: websiteData.secondaryColor, 
-                        opacity: 0.8,
-                        boxShadow: 'inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff'
-                      }}
-                    ></div>
+              <div className="order-1 lg:order-2 text-center lg:text-left">
+                <EditableText
+                  field="aboutTitle"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 lg:mb-6 text-gray-900"
+                  placeholder="Why Choose Us?"
+                />
+                <EditableText
+                  field="aboutText"
+                  className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6 lg:mb-8 max-w-2xl mx-auto lg:mx-0"
+                  placeholder="We are a forward-thinking company dedicated to delivering exceptional results..."
+                />
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6 max-w-md mx-auto lg:mx-0">
+                  <div className="text-center">
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold" style={{ color: websiteData.primaryColor }}>10+</div>
+                    <div className="text-xs sm:text-sm lg:text-base text-gray-600">Years Experience</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold" style={{ color: websiteData.secondaryColor }}>500+</div>
+                    <div className="text-xs sm:text-sm lg:text-base text-gray-600">Happy Clients</div>
                   </div>
                 </div>
-                <div className="relative order-1 lg:order-2">
-                  <div 
-                    className="rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden"
-                    style={{ boxShadow: '20px 20px 40px #bebebe, -20px -20px 40px #ffffff' }}
-                  >
+              </div>
+            </div>
+          </section>
+          {/* Modern Services Section */}
+          <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-6">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-6 sm:mb-8 lg:mb-16">
+                <EditableText
+                  field="servicesTitle"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-gray-900"
+                  placeholder="Our Services"
+                />
+                <p className="text-sm sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive solutions for your business needs</p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                {[
+                  { field: 'serviceImage1', title: 'Digital Strategy', desc: 'Comprehensive digital transformation strategies' },
+                  { field: 'serviceImage2', title: 'Design & Development', desc: 'Beautiful and functional digital experiences' },
+                  { field: 'serviceImage3', title: 'Marketing Solutions', desc: 'Data-driven marketing campaigns' }
+                ].map((service, i) => (
+                  <div key={i} className="group bg-white rounded-xl lg:rounded-2xl shadow-md hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 overflow-hidden">
                     <EditableImage
-                      field="heroImage"
-                      className="w-full h-48 sm:h-64 lg:h-96 object-cover"
-                      alt="Hero"
+                      field={service.field}
+                      className="w-full h-32 sm:h-40 lg:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      alt={service.title}
                     />
+                    <div className="p-3 sm:p-4 lg:p-6">
+                      <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-1 sm:mb-2 lg:mb-3 text-gray-900">{service.title}</h3>
+                      <p className="text-xs sm:text-sm lg:text-base text-gray-600 leading-relaxed">{service.desc}</p>
+                      <button 
+                        className="mt-2 sm:mt-3 lg:mt-4 text-xs sm:text-sm font-semibold hover:underline transition-all"
+                        style={{ color: websiteData.primaryColor }}
+                      >
+                        Learn More →
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+          {/* Modern Contact Section */}
+          <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-6 bg-gray-900 text-white">
+            <div className="max-w-4xl mx-auto text-center">
+              <EditableText
+                field="contactTitle"
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 lg:mb-6 text-white"
+                placeholder="Ready to Get Started?"
+              />
+              <EditableText
+                field="contactText"
+                className="text-sm sm:text-lg lg:text-xl text-gray-300 mb-4 sm:mb-6 lg:mb-8 max-w-2xl mx-auto"
+                placeholder="Let's discuss how we can help transform your business"
+              />
+              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center">
+                <button 
+                  className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full font-semibold text-white shadow-lg hover:shadow-xl transition-all text-sm sm:text-base"
+                  style={{ backgroundColor: websiteData.primaryColor }}
+                >
+                  Contact Us
+                </button>
+                <button className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full font-semibold text-white border-2 border-white/20 hover:border-white/40 transition-all text-sm sm:text-base">
+                  Schedule a Call
+                </button>
+              </div>
+            </div>
+          </section>
+          {/* Modern Footer */}
+          <footer className="py-6 sm:py-8 lg:py-12 px-3 sm:px-4 lg:px-6 bg-black text-white">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+                <div className="sm:col-span-2 lg:col-span-1">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <img src={websiteData.logoImage} alt="Logo" className="w-5 sm:w-6 lg:w-8 h-5 sm:h-6 lg:h-8 rounded-md lg:rounded-lg" />
+                    <span className="text-base sm:text-lg lg:text-xl font-bold">{websiteData.title}</span>
+                  </div>
+                  <p className="text-xs sm:text-sm lg:text-base text-gray-400 pr-0 sm:pr-4">{websiteData.description}</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-2 sm:mb-3 lg:mb-4 text-sm lg:text-base">Services</h4>
+                  <div className="space-y-1 lg:space-y-2 text-gray-400 text-xs sm:text-sm lg:text-base">
+                    <div>Digital Strategy</div>
+                    <div>Web Development</div>
+                    <div>Marketing</div>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-2 sm:mb-3 lg:mb-4 text-sm lg:text-base">Company</h4>
+                  <div className="space-y-1 lg:space-y-2 text-gray-400 text-xs sm:text-sm lg:text-base">
+                    <div>About Us</div>
+                    <div>Careers</div>
+                    <div>Contact</div>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-2 sm:mb-3 lg:mb-4 text-sm lg:text-base">Connect</h4>
+                  <div className="space-y-1 lg:space-y-2 text-gray-400 text-xs sm:text-sm lg:text-base">
+                    <div>LinkedIn</div>
+                    <div>Twitter</div>
+                    <div>Instagram</div>
                   </div>
                 </div>
               </div>
-            </section>
-
-            {/* Soft Content */}
-            <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-8">
-              <div className="max-w-7xl mx-auto">
-                <div 
-                  className="p-4 sm:p-6 lg:p-12 rounded-xl sm:rounded-2xl lg:rounded-3xl mb-6 sm:mb-8 lg:mb-16"
-                  style={{ boxShadow: '8px 8px 16px #bebebe, -8px -8px 16px #ffffff' }}
-                >
-                  <EditableText
-                    field="aboutTitle"
-                    className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 lg:mb-8 text-gray-800 text-center"
-                    placeholder="Soft Design Philosophy"
-                  />
-                  <EditableText
-                    field="aboutText"
-                    className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed text-center max-w-4xl mx-auto"
-                    placeholder="We believe in creating interfaces that feel natural and intuitive, like physical objects you can touch and interact with."
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                  {[
-                    { field: 'serviceImage1', title: 'Gentle Touch', desc: 'Soft, tactile interfaces' },
-                    { field: 'serviceImage2', title: 'Natural Feel', desc: 'Organic design patterns' },
-                    { field: 'serviceImage3', title: 'Smooth Flow', desc: 'Seamless user journeys' }
-                  ].map((item, i) => (
-                    <div 
-                      key={i} 
-                      className="p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl lg:rounded-3xl hover:scale-105 transition-transform"
-                      style={{ boxShadow: '8px 8px 16px #bebebe, -8px -8px 16px #ffffff' }}
-                    >
-                      <EditableImage
-                        field={item.field}
-                        className="w-full h-32 sm:h-40 lg:h-48 object-cover rounded-lg sm:rounded-xl lg:rounded-2xl mb-3 sm:mb-4 lg:mb-6"
-                        style={{ boxShadow: 'inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff' }}
-                        alt={item.title}
-                      />
-                      <h3 className="text-base sm:text-lg lg:text-xl font-semibold mb-1 sm:mb-2 lg:mb-3 text-gray-800">{item.title}</h3>
-                      <p className="text-xs sm:text-sm lg:text-base text-gray-600">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
+              <div className="border-t border-gray-800 mt-4 sm:mt-6 lg:mt-8 pt-4 sm:pt-6 lg:pt-8 text-center text-gray-400">
+                <p className="text-xs sm:text-sm lg:text-base">&copy; 2025 {websiteData.title}. All rights reserved.</p>
               </div>
-            </section>
-
-            {/* Soft Contact */}
-            <section className="py-8 sm:py-12 lg:py-20 px-3 sm:px-4 lg:px-8">
-              <div className="max-w-4xl mx-auto">
-                <div 
-                  className="p-4 sm:p-6 lg:p-12 rounded-xl sm:rounded-2xl lg:rounded-3xl text-center"
-                  style={{ boxShadow: 'inset 8px 8px 16px #bebebe, inset -8px -8px 16px #ffffff' }}
-                >
-                  <EditableText
-                    field="contactTitle"
-                    className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 lg:mb-6 text-gray-800"
-                    placeholder="Let's Create Something Soft"
-                  />
-                  <EditableText
-                    field="contactText"
-                    className="text-sm sm:text-lg lg:text-xl text-gray-600 mb-4 sm:mb-6 lg:mb-8 max-w-2xl mx-auto"
-                    placeholder="Ready to experience the gentle side of design?"
-                  />
-                  <button 
-                    className="px-6 sm:px-8 lg:px-10 py-2 sm:py-3 lg:py-4 rounded-lg sm:rounded-xl lg:rounded-2xl text-white font-semibold hover:scale-105 transition-transform text-xs sm:text-sm lg:text-base"
-                    style={{ 
-                      backgroundColor: websiteData.primaryColor,
-                      boxShadow: '6px 6px 12px #bebebe, -6px -6px 12px #ffffff'
-                    }}
-                  >
-                    Get in Touch
-                  </button>
-                </div>
-              </div>
-            </section>
-
-            {/* Soft Footer */}
-            <footer className="py-4 sm:py-6 lg:py-8 px-3 sm:px-4 lg:px-8">
-              <div className="max-w-7xl mx-auto text-center">
-                <div 
-                  className="p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl lg:rounded-2xl"
-                  style={{ boxShadow: 'inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff' }}
-                >
-                  <p className="text-xs sm:text-sm lg:text-base text-gray-500">{websiteData.title} - Soft Design Approach</p>
-                </div>
-              </div>
-            </footer>
-          </div>
-        )}
-      </div>
-    );
+            </div>
+          </footer>
+        </div>
+      );
+    }
   };
 
   // Skeleton Loading Component
